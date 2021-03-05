@@ -1,9 +1,9 @@
 \documentclass[a4paper,oneside,12pt]{book}
 
-\newcommand{\thesistitle}{Tema central} % Your thesis title, this is used in the title and abstract
+\newcommand{\thesistitle}{Localización y Mapeo Simultáneo con LiDAR para Plataformas Robóticas} % Your thesis title, this is used in the title and abstract
 \newcommand{\degree}{(Ingeniero Electrónico)} % Your degree name, this is used in the title page and abstract
 \newcommand{\typeofthesis}{Trabajo de grado} % dissertation, Final Year Project, report, etc.
-\newcommand{\authorname}{Nombre del estudiante} % Your name, this is used in the title page and PDF stuff
+\newcommand{\authorname}{Cristian Felipe Rubio Aguiar} % Your name, this is used in the title page and PDF stuff
 
 
 \newcommand{\keywords}{this, that, more} % Keywords for your thesis
@@ -28,7 +28,6 @@
 \usepackage[round,sort,comma,numbers]{natbib}
 \usepackage[nottoc]{tocbibind}
 
-
 %% Document size
 % include showframe as an option if you want to see the boxes
 \usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,headheight=16pt]{geometry}
@@ -37,15 +36,21 @@
 \usepackage{amsmath}
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 \usepackage[pdftex]{graphicx}
-\usepackage[colorinlistoftodos]{todonotes}
-\usepackage[colorlinks=true, allcolors=black]{hyperref}
+%\usepackage[colorinlistoftodos]{todonotes}
+
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
+    citecolor=green,
 }
+
+% Define the number of section levels to be included in the t.o.c. and numbered	(3 is default)	
+\setcounter{tocdepth}{3}							
+%\setcounter{secnumdepth}{3}	
+
 \urlstyle{same}
 \usepackage[labelfont={bf,it}, figurename=Figura, tablename=Tabla]{caption}
 
@@ -59,30 +64,19 @@
 
 \pagestyle{plain} % Embrace simplicity!
 
-%\pagestyle{fancy}
-%\fancyhf{} % sets both header and footer to nothing
-%\renewcommand{\headrulewidth}{0pt}
-%\cfoot{\thepage}
-%\ifdefined\authorid
-%\chead{\it \authorname\ (\authorid)}
-%\else
-%\chead{\it \authorname}
-%\fi
-%% End of block
-
-%% It is not a requirement of the university that the font should be sans-serif, but
-%% the Mechanical engineers require it. Comment out the following line to disable it
 \renewcommand{\familydefault}{\sfdefault} %use the sans-serif font as default
-
-%% If you're not using sans-serif, consider using Palatino instead of the LaTeX standard
-%\usepackage{mathpazo} % Use the Palatino font by default if you prefer it to Computer Modern
 
 \renewcommand{\theequation}{\arabic{equation}} %% use continuous equation numbers
 
 %% Format Chapter headings appropriately
-\usepackage{titlesec}
-\titleformat{\chapter}[hang] 
-{\normalfont\huge\bfseries}{\thechapter}{1cm}{} 
+%\usepackage{titlesec}
+%\titleformat{\chapter}[hang] 
+%{\normalfont\huge\bfseries}{\thechapter}{1cm}{} 
+\usepackage{titlesec}		
+\titleformat{\chapter}[display]
+  {\Huge\bfseries\filcenter}
+  {{\fontsize{50pt}{1em}\vspace{-4.2ex}\selectfont \textnormal{\thechapter}}}{1ex}{}[]
+  
 
 \title{\thesistitle}
 \author{\authorname}
@@ -129,6 +123,12 @@ TLA&Finally, three letter acronyms and other abbreviations arranged alphabetical
 \end{tabular}
 \vspace{2cm}
 
+If a parameter has a typical unit that is used throughout your report, then it should be included here on the right hand side.
+
+If you have a very mathematical report, then you may wish to divide the nomenclature list into functions and variables, and then sub- and super-scripts.
+
+Note that Roman mathematical symbols are typically in a serif font in italics.
+
 \mainmatter
 %\input{introduction/introduction.tex}
 \input{background/background.tex}
@@ -137,10 +137,11 @@ TLA&Finally, three letter acronyms and other abbreviations arranged alphabetical
 \input{conclusion/conclusion.tex}
 \bibliographystyle{unsrtnat}
 \renewcommand{\bibname}{Referencias Bibliográficas}
-\bibliography{bibs/sample}
+\bibliography{bibs/references.bib}
 \appendix
 \renewcommand{\thechapter}{A\arabic{chapter}}
 \input{appendix/appendix.tex}
+
 
 
 \end{document}
