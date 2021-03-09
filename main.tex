@@ -1,10 +1,9 @@
 \documentclass[a4paper,oneside,12pt]{book}
 
-\newcommand{\thesistitle}{Localización y Mapeo Simultáneo con LiDAR para Plataformas Robóticas} % Your thesis title, this is used in the title and abstract
-\newcommand{\degree}{(Ingeniero Electrónico)} % Your degree name, this is used in the title page and abstract
-\newcommand{\typeofthesis}{Trabajo de grado} % dissertation, Final Year Project, report, etc.
-\newcommand{\authorname}{Cristian Felipe Rubio Aguiar} % Your name, this is used in the title page and PDF stuff
-
+\newcommand{\thesistitle}{Título de la tesis o trabajo de investigación} % Your thesis title
+\newcommand{\degree}{(Nombre del Título a Obtener)} % Your degree name
+\newcommand{\typeofthesis}{Trabajo de grado} % dissertation
+\newcommand{\authorname}{Nombres y apellidos completos del autor} % Your name
 
 \newcommand{\keywords}{this, that, more} % Keywords for your thesis
 \newcommand{\school}{\href{www.unibague.edu.co}{Programa de electrónica - Universidad de Ibagué}} % Your school's name and URL, this is used in the title page
@@ -25,8 +24,8 @@
 \usepackage[english]{babel}
 
 %% Bibliographical stuff
-\usepackage[round,sort,comma,numbers]{natbib}
-\usepackage[nottoc]{tocbibind}
+%\usepackage[round,sort,comma,numbers]{natbib}
+%\usepackage[nottoc]{tocbibind}
 
 %% Document size
 % include showframe as an option if you want to see the boxes
@@ -36,8 +35,9 @@
 \usepackage{amsmath}
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 \usepackage[pdftex]{graphicx}
-%\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{subfigure}
 
+%\usepackage[colorinlistoftodos]{todonotes}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -48,8 +48,11 @@
 }
 
 % Define the number of section levels to be included in the t.o.c. and numbered	(3 is default)	
-\setcounter{tocdepth}{3}							
-%\setcounter{secnumdepth}{3}	
+\setcounter{tocdepth}{3}						
+\setcounter{secnumdepth}{3}	
+
+\usepackage{rotating}
+\usepackage{float}
 
 \urlstyle{same}
 \usepackage[labelfont={bf,it}, figurename=Figura, tablename=Tabla]{caption}
@@ -68,37 +71,31 @@
 
 \renewcommand{\theequation}{\arabic{equation}} %% use continuous equation numbers
 
-%% Format Chapter headings appropriately
-%\usepackage{titlesec}
-%\titleformat{\chapter}[hang] 
-%{\normalfont\huge\bfseries}{\thechapter}{1cm}{} 
 \usepackage{titlesec}		
 \titleformat{\chapter}[display]
   {\Huge\bfseries\filcenter}
-  {{\fontsize{50pt}{1em}\vspace{-4.2ex}\selectfont \textnormal{\thechapter}}}{1ex}{}[]
+  {{\fontsize{30pt}{1em}\vspace{-4.2ex}\selectfont \textnormal{Capítulo \thechapter}}}{1ex}{}[]
   
-
 \title{\thesistitle}
 \author{\authorname}
 
 \frontmatter
 \begin{document}
+\input{title/cover}
 \input{title/title.tex}
 \pagenumbering{roman}
-
-\chapter*{Abstract}
-A short summary of the problem investigated, the approach taken and the key findings. This should not be more that around 400 words.
-
-The must be on a separate page.
-
-
-\newpage
-%\onehalfspacing\raggedright %\raggedright turns off justification and hypenation
 
 \section*{\Huge{Agradecimientos}}
 ¡Gracias Familia!
 
 Debo agradecer cualquier ayuda que haya recibido (por ejemplo, del personal técnico) o la aportación de, por ejemplo, una empresa.
+
+\newpage
+\chapter*{Abstract}
+A short summary of the problem investigated, the approach taken and the key findings. This should not be more that around 400 words.
+
+The must be on a separate page.
+
 
 \renewcommand*\contentsname{Contenido}
 \renewcommand{\listfigurename}{Lista de Figuras}
@@ -109,25 +106,15 @@ Debo agradecer cualquier ayuda que haya recibido (por ejemplo, del personal téc
 \newpage
 \section*{\Huge{Nomenclatura}}
 \begin{tabular}{lp{9cm}l}
-A&Area of the wing&$m^{2}$\\
-B\\
-C& Roman letters first, with capitals\ldots\\
-a&then lower case.\\
-b\\
-c\\
-$\Gamma$&Followed by Greek capitals\ldots\\
-$\alpha$&then lower case greek symbols.\\
-$\beta$\\
-$\epsilon$\\
-TLA&Finally, three letter acronyms and other abbreviations arranged alphabetically\\
+ICP & Iterative Closest Point \\
+NDT & Normal Distributions Transform \\
+ROS & Robot Operating System \\
+SLAM & Simultaneous Localization And Mapping\\
 \end{tabular}
 \vspace{2cm}
 
 If a parameter has a typical unit that is used throughout your report, then it should be included here on the right hand side.
 
-If you have a very mathematical report, then you may wish to divide the nomenclature list into functions and variables, and then sub- and super-scripts.
-
-Note that Roman mathematical symbols are typically in a serif font in italics.
 
 \mainmatter
 %\input{introduction/introduction.tex}
@@ -135,13 +122,16 @@ Note that Roman mathematical symbols are typically in a serif font in italics.
 \input{project/project.tex}
 \input{evaluation/evaluation.tex}
 \input{conclusion/conclusion.tex}
-\bibliographystyle{unsrtnat}
+%\bibliographystyle{unsrtnat}
+\bibliographystyle{IEEEtran}
 \renewcommand{\bibname}{Referencias Bibliográficas}
 \bibliography{bibs/references.bib}
+
+
+%\bibliography{references.bib}
+%\addbibresource{bibs/references.bib}
+%\printbibliography
 \appendix
 \renewcommand{\thechapter}{A\arabic{chapter}}
 \input{appendix/appendix.tex}
-
-
-
 \end{document}

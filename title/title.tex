@@ -1,55 +1,34 @@
 \begin{titlepage}
 
-\center % Center everything on the page
+\center % Center 
 
-%% All the text parameters should be taken from the start of the main.tex file.
-%% You should only alter stuff here if you want to change the layout
-
-%----------------------------------------------------------------------------------------
-%	LOGO SECTION
-%----------------------------------------------------------------------------------------
-%% Choose one of the following -- a colour or black-and-white logo
-
-%\includegraphics{title/Trinity_RGB_transparent_main.png}\\[1cm] 
-\includegraphics[width=10cm]{title/unibague.png}\\[0.3cm] 
-%\includegraphics[width=12cm]{title/black-stacked-trinity.jpg}\\[1cm] 
-
-\Large \school\\[1.5cm] % Minor heading such as course title
-\ifdefined\department
-\large \department\\[1.5cm] % Minor heading such as course title
-\fi
-
-%----------------------------------------------------------------------------------------
 %	TITLE SECTION
-%----------------------------------------------------------------------------------------
+
 \makeatletter
-{ \huge \bfseries \thesistitle}\\[1.5cm] % Title of your document
+{ \LARGE \bfseries \thesistitle}\\[1.5cm] % Title of your document
  
-
-%----------------------------------------------------------------------------------------
 %	AUTHOR SECTION
-%----------------------------------------------------------------------------------------
+\vspace*{6\baselineskip}
 
-\ifdefined\authorid
-\authorname\\ % Your name
-\authorid\\[2cm] % Your Student ID
-\else
-\authorname\\[2cm] % Your name
-\fi
+{ \Large \bfseries \authorname}\\[0.7cm] 
 
-%----------------------------------------------------------------------------------------
-%	DATE SECTION
-%----------------------------------------------------------------------------------------
+\vspace*{2\baselineskip}
+\large{ Trabajo de grado que se presenta como requisito parcial para optar al título de:\\
+\textbf{Ingeniero Electrónico}}
 
-{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+\vspace*{5\baselineskip}
 
+\large{ Director:\\
+Título (Doctor o Ing) Nombre(s) Apellidos(s) del director(a)\\
+Afiliación Institucional (Ej. Profesor Universidad de Ibagué}
  
-%----------------------------------------------------------------------------------------
-%	TYPE OF THESIS SECTION
-%----------------------------------------------------------------------------------------
+%	TYPE 
+\vspace*{4\baselineskip}
+
 \vfill
-\typeofthesis\ que se presenta como \\requisito parcial para optar al título de:\\
-\degree
-\vfill % Fill the rest of the page with whitespace
+\large{ \bfseries Facultad Ingeniería\\
+Ingeniería Electrónica}\\
+Ibagué, 2021
+\vfill
 
 \end{titlepage}
